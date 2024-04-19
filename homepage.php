@@ -1,156 +1,90 @@
-
-<html>
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bank Dashboard</title>
-
     <style>
-
-body {
-            background: lightgray;
-        }
-
-
-
-        .borderexample {
-            border-width: 3px;
-            border-style: solid;
-            border-color: black;
-            background-color: lightblue;
-        }
-
-
-        .dropdownmenu ul {
-            list-style: none;
-            width: 100%;
-            text-align: center; /* Center the parent menu */
+        body, html {
+            margin: 0;
             padding: 0;
+            height: 100%;
+            font-family: 'Arial', sans-serif;
+            background: #f4f4f4;
         }
 
-        .dropdownmenu li {
-            display: inline-block; /* Display as inline-block */
-            position: relative;
-        }
-
-        .dropdownmenu a {
-            background: #30a6e6;
+        .sidebar {
+            background-color: #004165;
             color: white;
-            display: block;
-            font-weight: bold;
-            font-size: 13px;
-            font-family: 'Poppins', 'sans-serif';
-            padding: 15px 55px;
+            width: 300px;
+            height: 100vh;
+            padding: 20px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .sidebar input[type="text"],
+        .sidebar input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .sidebar button, .sidebar a.button-link {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #0288d1;
+            color: white;
+            cursor: pointer;
             text-align: center;
             text-decoration: none;
-            transition: all 0.25s ease;
+            display: block;
         }
 
-        .dropdownmenu li:hover a {
-            background: #34495e;
+        .sidebar a.button-link:hover {
+            background-color: #007BFF;
         }
 
-        .dropdownmenu ul.submenu {
-            position: absolute;
-            left: 50%;
-            top: 100%;
-            transform: translateX(-50%);
-            opacity: 0;
-            visibility: hidden;
-            list-style: none;
-            width: 100%;
-            transition: opacity 0.25s ease;
-            z-index: 1;
+        .sidebar .registration-link {
+            color: #ccc;
+            font-size: 12px;
+            text-decoration: underline;
         }
 
-        .dropdownmenu li:hover ul.submenu {
-            opacity: 1;
-            visibility: visible;
+        .sidebar .registration-link:hover {
+            color: #fff;
+        }
+        .image-container {
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;    
         }
 
-        .dropdownmenu ul.submenu li {
-            width: 100%;
-        }
-
-        .dropdownmenu ul.submenu a {
-            padding: 10px 15px;
-        }
-
-        .dropdownmenu ul.submenu a:hover {
-            background: #df3b0f;
-        }
+.image-container img {
+    max-width: 100%;
+    height: auto;
+}
     </style>
 </head>
-
 <body>
-    <h1 class="borderexample">
-        <center>Dashboard</center></h1>
-
-<br>
-<h3 align="right">  <a href= "#"> logout</a>  </h3>
-
-
-    <nav class="dropdownmenu">
-        <ul>
-            <li>
-                <a href="#">Accounts</a>
-                 <ul class="submenu">
-                     <li><a href="account_overview.html">Account overview</a></li>
-                    <li><a href="#">Transaction History</a></li>
-                    <li><a href="manage_account.php"> manage account </a></li>
-
-                 </ul>
-            </li>
-
-            <li>
-                <a href="#">Pay & Transfer</a>
-                <ul class="submenu">
-                    <li><a href="#">transfer</a></li>
-                    <li><a href="#">view/manage transfer</a></li>
-                    <li><a href="#">deposit</a></li>
-                </ul>
-            </li>
-
-            <li>
-                <a href="#">Profile and Settings</a>
-                <ul class="submenu">
-                    <li><a href="#">Contact Information</a></li>
-                    <li><a href="#">Security</a></li>
-                    <li><a href="#">Manage Profile</a></li>
-                </ul>
-            </li>
-        </ul>
-    </nav>
+    <div class="sidebar">
+        <h2>Login</h2>
+        <input type="text" name="username" placeholder="Username">
+        <input type="password" name="password" placeholder="Password">
+        <button type="submit">Sign In</button>
+        <button href="register.html" type="submit" >Register New User</button>
+    </div>
+    <div class="image-container">
+        <img src="homeimage.webp" alt="Bank Building">
+    </div>
 </body>
-
-<br>
-<br>
-<br>
-
- <h2>Hello <?php echo $_SESSION['username']; ?></h2> 
-
-
-<h2> Hello "user" </h2>
-
-<hr>
-
-<br>
-
-
-<h3> Personal accounts </h3>
-
-<h3> <a href= "#"> accounts 1:</a> $xxxxxx </h3>
-<h3> <a href= "#"> accounts 2:</a> $xxxxxx </h3>
-<h3> <a href= "#"> accounts 3:</a> $xxxxxx </h3>
-
-
-<hr>
-
-
-
-
 </html>
-
-
-
-
-
