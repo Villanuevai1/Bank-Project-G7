@@ -40,7 +40,7 @@
         <h3>how much would you like to add?: <input type="text" name="balance"></h3>
 
 
-        <h3>create pin (4 number): <input type="text" name="pin"></h3>
+        <h3>create pin (4 number): <input type="password" name="pin" id="pinInput">  <button type="button" id="togglePassword">Show PIN</button></h3>
 
 
         <br>
@@ -49,7 +49,21 @@
     </form>
 
 </body>
+<script>
+    const toggle = document.getElementById('togglePassword');
+    const pinInput = document.getElementById('pinInput');
 
+    toggle.addEventListener('click', function() {
+        // Toggle between password and text type on click
+        if (pinInput.type === "password") {
+            pinInput.type = "text";
+            toggle.textContent = "Hide PIN";
+        } else {
+            pinInput.type = "password";
+            toggle.textContent = "Show PIN";
+        }
+    });
+</script>
 </html>
 
 
