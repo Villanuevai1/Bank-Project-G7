@@ -6,7 +6,7 @@
 <meta name ="viewport" content= "width=device-width, initial-scale=1">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
-<title> account overview  </title>
+<title> Account Overview  </title>
 
 
   <style>
@@ -108,9 +108,9 @@ body {
             <li>
                 <a href="#">Accounts</a>
                  <ul class="submenu">
-                     <li><a href="account_overview.php">Account overview</a></li>
+                     <li><a href="accountoverview.php">Account overview</a></li>
                     <li><a href="#">Transaction History</a></li>
-                    <li><a href="manage_account.php"> manage account </a></li>
+                    <li><a href="manageaccount.php"> manage account </a></li>
 
                  </ul>
             </li>
