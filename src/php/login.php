@@ -84,7 +84,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                     <a href="#!" class="text-white"><i class="fab fa-google fa-lg"></i></a>
                                 </div>
                                 <div>
-                                    <p class="mb-0">Don't have an account? <a href="index.php"
+                                    <p class="mb-0">Don't have an account? <a href="../../index.php"
                                             class="text-white-50 fw-bold">Sign Up</a></p>
                                 </div>
                             </div>

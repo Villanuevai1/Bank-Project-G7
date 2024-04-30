@@ -46,7 +46,7 @@
                 echo "<div class='error-message'> Error: Username already exists. <br> <img src='giphy1.gif' alt='Empty Fields GIF'> </div>";
 
                 //nned ti fix the links
-                echo "<a href='index.php'>Redirecting to registration</a>";
+                echo "<a href='../../index.php'>Redirecting to registration</a>";
 
             } else {
                 // Register user
@@ -67,14 +67,14 @@
         } else {
             echo "<div class='error-message'> Error: Username, password, address, city, zip, driver's license number, or SSN is empty. <br> <img src='giphy.gif' alt='Empty Fields GIF'> </div>";
                                 //need to fix the link      
-            echo "<a href='index.php'> Redirecting to registration</a>";
+            echo "<a href='../../index.php'> Redirecting to registration</a>";
 
         }
     } else {
         echo "Error: Form was not submitted.";
 
                             //need to fix the link      
-            echo "<a href='index.php'>Product Redirecting to registration </a>";
+            echo "<a href='../../index.php'>Product Redirecting to registration </a>";
     }
     ?>
 </body>

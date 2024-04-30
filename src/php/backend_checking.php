@@ -29,7 +29,7 @@ $sql = "INSERT INTO checkinginfo (accountname, balance, pin, credit_card_number,
 
 if ($conn->query($sql) === TRUE) {
     echo "New record created successfully";
-    echo "<a href='homepage.php'> CLICK HERE for homepage </a>";
+    echo "<a href='../homepage.php'> CLICK HERE for homepage </a>";
 
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
