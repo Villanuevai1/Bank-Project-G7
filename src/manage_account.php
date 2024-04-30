@@ -108,9 +108,9 @@ body {
             <li>
                 <a href="#">Accounts</a>
                  <ul class="submenu">
-                     <li><a href="accountoverview.php">Account overview</a></li>
+                     <li><a href="account_overview.php">Account overview</a></li>
                     <li><a href="#">Transaction History</a></li>
-                    <li><a href="manageaccount.php"> manage account </a></li>
+                    <li><a href="manage_account.php"> manage account </a></li>
 
                  </ul>
             </li>
