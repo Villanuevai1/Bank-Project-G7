@@ -33,7 +33,7 @@
     <h1><center>checking account creation</h1>
 
 
-    <form action="backend_checking.php" method="post">
+    <form action="php/backend_checking.php" method="post">
 
 <h3>name of account?: <input type="text" name="accountname"></h3>
 

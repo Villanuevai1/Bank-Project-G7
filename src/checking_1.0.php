@@ -67,7 +67,7 @@
 <div class = "container">
     <h1><center>Checking Account Creation</h1>
 
-    <form action="backend_checking.php" method="post">
+    <form action="php/backend_checking.php" method="post">
 
 
         <label for="accountname">Account Name:</label>
@@ -102,6 +102,7 @@
     });
 </script>
 </html>
+
 
 
 
