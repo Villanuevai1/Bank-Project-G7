@@ -30,6 +30,6 @@ body, html {
     padding: 10px;
 }
 
-.text-white-50{
-    color: rgba(255, 255, 255, 0.5);
+.text-white{
+    color: rgba(255, 255, 255);
 }
