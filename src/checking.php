@@ -1,68 +1,34 @@
 <html>
-
 <head>
-
+    <!-- Sets the title of the webpage -->
     <title>Checking Account</title>
-
-    <style>
-        h1 {
-            color: darkgreen;
-        }
-
-        body {
-            background-color: lightgray;
-        }
-
-        input[type=button],
-        input[type=submit] {
-            background-color: darkblue;
-            border: none;
-            color: #fff;
-            padding: 15px 30px;
-            text-decoration: none;
-            margin: 4px 2px;
-            cursor: pointer;
-        }
-    </style>
-
+    <!-- Links the custom CSS for the checking page -->
+    <link rel="stylesheet" href="css/checking.css">  
 </head>
 
 <body>
+    <!-- Page heading -->
+    <h1>Checking Account Creation</h1>
 
-    <h1><center>Checking Account Creation</h1>
-
-
+    <!-- Form for submitting checking account data to a backend PHP script -->
     <form method="post" action="php/backend_checking.php">
-        <!--added required-->
+        <!-- Input for account name with 'required' attribute to ensure it is filled -->
         <h3>name of account?: <input type="text" name="accountname" required></h3>
-        <!--added required and min-->
+        <!-- Input for initial balance without 'required' attribute-->
         <h3>how much would you like to add?: <input type="text" name="balance"></h3>
-
-        <!--added required, pattern, title and min-->
+        <!-- Input for PIN with 'required' attribute to ensure it is filled -->
         <h3>create pin (4 number): <input type="password" name="pin" id="pinInput"  pattern="\d{4}" required title="PIN must be 4 digits">
+        
         <button type="button" id="togglePassword">Show PIN</button>
         </h3>
-
-
+        <!-- Line break for spacing -->
         <br>
-
+        <!-- Submit button for the form -->
         <input type="submit" value="Register">
     </form>
 
+    <!-- Link to the external JavaScript file -->
+    <script src="../js/toggle-pin.js"></script>
 </body>
-<script>
-    const toggle = document.getElementById('togglePassword');
-    const pinInput = document.getElementById('pinInput');
 
-    toggle.addEventListener('click', function() {
-        // Toggle between password and text type on click
-        if (pinInput.type === "password") {
-            pinInput.type = "text";
-            toggle.textContent = "Hide PIN";
-        } else {
-            pinInput.type = "password";
-            toggle.textContent = "Show PIN";
-        }
-    });
-</script>
 </html>
