@@ -1,7 +1,7 @@
 <html>
 
 <head>
-    /* Sets the title of the webpage */
+    <!-- Sets the title of the webpage -->
     <title>Processing</title>
     <style>
         body { background-color: lightgray; }
@@ -11,7 +11,7 @@
 </head>
 
 <body>
-    /* Display a message while processing the form submission */
+    <!-- Display a message while processing the form submission-->
     <h1>Processing...</h1>
 
     <?php
@@ -26,6 +26,10 @@
                 exit; // Stop the script if any field is missing
             }
         }
+
+        $password = $_POST["password"];
+        // Hash the password
+        $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
         // Create connection
         $conn = new mysqli('db', 'user', 'password', 'database');
@@ -53,10 +57,11 @@
 
         // Register user
         $stmt = $conn->prepare("INSERT INTO `customers` (`username`, `password`, `address`, `city`, `zip`, `DriverL`, `SSN`, `first_name`, `last_name`, `phone_number`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+
         if (!$stmt) {
             die("Prepare failed: " . $conn->error);
         }
-        $stmt->bind_param("ssssssssss", $_POST["username"], $_POST["password"], $_POST["address"], $_POST["city"], $_POST["zip"], $_POST["DriverL"], $_POST["SSN"], $_POST["first_name"], $_POST["last_name"], $_POST["phone_number"]);
+        $stmt->bind_param("ssssssssss", $_POST["username"], $hashed_password, $_POST["address"], $_POST["city"], $_POST["zip"], $_POST["DriverL"], $_POST["SSN"], $_POST["first_name"], $_POST["last_name"], $_POST["phone_number"]);
         if ($stmt->execute()) {
             echo "<div class='good-message'>SUCCESS: User has been added.</div>";
             echo "<a href='../../index.php'>CLICK HERE for login</a>";

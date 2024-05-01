@@ -20,17 +20,17 @@
         <div class="container py-5 h-100">
             <div class="row d-flex justify-content-center align-items-center h-100">
                 <div class="col-12 col-md-8 col-lg-6 col-xl-5">
-
+                <div class="card text-white" style="border-radius: 1rem; background-color: #183C67;"> <!-- changed bg -->
                 <!-- Card for the login form -->    
-                <div class="card card-custom">
-                        <div class="card-body p-5 text-center">
-
+                <div class="card-body p-5 text-center">
+                            <div class="mb-md-5 mt-md-4 pb-5">
+                            <img src="src/images/logo_transparent.png" style="max-width: 300px; height: auto;"> <!-- added logo -->
                             <!-- Login form header -->
-                            <h2 class="fw-bold mb-2 text-uppercase">Login</h2>
+                            <h2 class="fw-bold mb-2 pt-5 text-uppercase">Login</h2>
                             <p class="text-white-50 mb-5">Please enter your login and password!</p>
 
                             <!-- PHP code to handle form submission -->
-                            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+                            <form action="src/php/backend_index.php" method="post">
                                 <!-- Username -->
                                 <div class="form-outline form-white">
                                     <input type="text" id="username" name="username" class="form-control form-control-lg" required>
@@ -46,7 +46,7 @@
                             </form>
 
                             <!-- Link to registration page -->
-                            <p class="mb-0">Don't have an account? <a href="src/register.php" class="text-white-50 fw-bold">Sign Up</a></p>
+                            <p class="mb-0">Don't have an account? <a href="src/register.php" class="text-white fw-bold">Sign Up</a></p>
                         </div>
                     </div>
                 </div>
