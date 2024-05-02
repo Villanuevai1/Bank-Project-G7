@@ -1,0 +1,35 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Arial';
+    background: lightgray;
+}
+
+.card-custom{
+    background-color: #343a40;
+    color: white;
+    border-radius: 4rem;
+}
+.form-outline{
+    margin-bottom: 4rem;
+}
+
+.form-white .form-control-lg{
+    background-color: #495057;
+    border: none;
+    color: white;
+}
+
+.form-white .form-label{
+    color: #ced4da;
+}
+
+.btn-outline-light {
+    width: 100%;
+    padding: 10px;
+}
+
+.text-white{
+    color: rgba(255, 255, 255);
+}
