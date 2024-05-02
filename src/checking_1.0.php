@@ -1,41 +1,34 @@
-
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-
-    <title>Registration</title>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Checking Account Creation</title>
     <style>
-        h1 {
-            color: darkgreen;
-            text-align: center;
-        }
-
         body {
-            background-color: lightgray;
+            background-color: silver;
             font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
         }
 
         .container {
-            max-width: 500px;
-            margin: 50px auto;
-            background-color: white;
+            max-width: 350px;
+            margin: 100px auto;
+            background-color: #ffffff;
             padding: 20px;
             border-radius: 10px;
         }
 
-        input[type=button],
-        input[type=submit] {
-            background-color: blue;
-            border: none;
-            color: #fff;
-            padding: 15px 30px;
-            text-decoration: none;
-            margin: 0px 2px;
-            cursor: pointer;
+        h2 {
+            text-align: center;
+            color: #183C67;
         }
-        input[type="submit"]:hover {
-            background-color: darkblue;
+
+        form {
+            margin-top: 20px;
         }
 
         input[type="text"],
@@ -43,9 +36,24 @@
             width: 100%;
             padding: 10px;
             margin-bottom: 15px;
+            border: 1px solid #ccc;
             box-sizing: border-box;
         }
 
+        input[type="submit"] {
+            background-color: #008000;
+            color: #fff;
+            border: none;
+            padding: 15px 0;
+            width: 100%;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #005000;
+        }
 
         #togglePassword {
             background-color: transparent;
@@ -54,62 +62,55 @@
             padding: 10px;
             cursor: pointer;
             font-size: 14px;
-            margin-right: 5px;
+            margin-right: 2px;
             text-decoration: underline;
             outline: none;
-            float: right;
+        }
+
+        #togglePassword:hover {
+            color: #005000;
         }
     </style>
-
 </head>
 
 <body>
-<div class = "container">
-    <h1><center>Checking Account Creation</h1>
+    <header>
+        <img src="logo_transparent.png">
+    </header>
 
-    <form action="php/backend_checking.php" method="post">
+    <div class="container">
+        <h2>Checking Account Creation</h2>
+        <form action="backend_checking.php" method="post">
+            <label style="color: #333;" for="accountname"><b>Account Name:</b></label>
+            <input type="text" name="accountname" id="accountname" required>
 
+            <label style="color: #333;" for="balance"><b>Initial Balance: </b></label>
+            <input type="text" name="balance" id="balance" required>
 
-        <label for="accountname">Account Name:</label>
-        <input type="text" name="accountname" id="accountname" required>
+            <label style="color: #333;" for="pin"><b>Create PIN (4 digits): </b></label>
+            <input type="password" name="pin" id="pinInput" maxlength="4" required>
+            <span id="togglePassword">Show PIN</span>
 
-        <label for="balance">Initial Balance:</label>
-        <input type="text" name="balance" id="balance" required>
+            <input type="submit" value="Register">
+        </form>
+    </div>
 
-        <label for="pin">Create PIN (4 Digits):</label>
-        <input type="password" name="pin" id="pinInput" maxlength="4" required>
-        <span id="togglePassword">Show PIN</span>
+    <script>
+        const toggle = document.getElementById('togglePassword');
+        const pinInput = document.getElementById('pinInput');
 
-        <br>
-
-        <input type="submit" value="Register">
-    </form>
-</div>
-</body>
-<script>
-    const toggle = document.getElementById('togglePassword');
-    const pinInput = document.getElementById('pinInput');
-
-    toggle.addEventListener('click', function() {
+        toggle.addEventListener('click', function() {
         // Toggle between password and text type on click
-        if (pinInput.type === "password") {
-            pinInput.type = "text";
-            toggle.textContent = "Hide PIN";
-        } else {
-            pinInput.type = "password";
-            toggle.textContent = "Show PIN";
-        }
-    });
-</script>
+            if (pinInput.type == "password") {
+                pinInput.type = "text";
+                toggle.textContent = "Hide PIN";
+            } else {
+                pinInput.type = "password";
+                toggle.textContent = "Show PIN";
+            }
+        });
+    </script>
+
+</body>
+
 </html>
-
-
-
-
-
-
-
-
-
-
-
