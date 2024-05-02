@@ -8,7 +8,7 @@
     <title>Checking Account Creation</title>
     <style>
         body {
-            background-color: silver;
+            background-color: lightgray;
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
