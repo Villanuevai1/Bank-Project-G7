@@ -17,7 +17,7 @@
     <h1>Create Your Form Bank Account</h1>
 
     <!-- Registration form with client-side validation on submit -->
-    <form method="post" action="php/register.php" onsubmit="return validateForm()">
+    <form method="post" action="php/backend_register.php" onsubmit="return validateForm()">
         <!-- First name with inline validation error display -->
         <div class="form-group">
             <label for="first_name">First Name:</label>
