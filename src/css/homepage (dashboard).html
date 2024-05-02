@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank Dashboard</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to external CSS file -->
+    <style>
+        /* Reset default margin and padding */
+        body, h1, h2, h3, ul, li {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Global styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+        }
+
+        /* Main content styles */
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+        
+        h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        
+        h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        
+        /* Account box styles*/
+        .account-box {
+            background-color: #fff;
+            margin-bottom: 20px;
+            padding: 20px;
+            overflow: hidden;
+        }
+        .account-box {
+            background-color: #e5e5e5;
+            margin-bottom: 5px;
+            padding: 20px;
+        }
+        
+        .account-name {
+            float: left;
+            font-size: 18px;
+            color: #333;
+        }
+        
+        .amount {
+            float: right;
+            font-size: 18px;
+            color: #005000;
+        }
+        </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <img src="logo_transparent.png" alt="Logo">
+        <h1 style = "margin: auto;">Dashboard</h1>
+    <!-- Logout link -->
+        <a align="right" href="#" style="text-decoration: none; color: #fff; font-size: 16px; max-width: 110px;"><b>Log Out</b></a>
+    </header>
+    
+    <!-- Main content -->
+    <div class="container">
+        <nav class="dropdownmenu">
+            <ul>
+                <li>
+                    <a href="#">Accounts</a>
+                    <ul class="submenu">
+                        <li><a href="account_overview.html">Account Overview</a></li>
+                        <li><a href="#">Transaction History</a></li>
+                        <li><a href="manage_account.php">Manage Account</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Pay & Transfer</a>
+                    <ul class="submenu">
+                        <li><a href="#">Transfer</a></li>
+                        <li><a href="#">View/Manage Transfer</a></li>
+                        <li><a href="#">Deposit</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Profile and Settings</a>
+                    <ul class="submenu">
+                        <li><a href="#">Contact Information</a></li>
+                        <li><a href="#">Security</a></li>
+                        <li><a href="#">Manage Profile</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+<br>
+<br>
+        <h2>Hello, [Username]</h2>
+        <hr>
+        <br>
+        <br>
+        <h3>Personal Accounts</h3>
+        <div class="account-box">
+            <span class="account-name">Account 1</span>
+            <div class="amount">$xxxxxx</div>
+        </div>
+
+        <div class="account-box">
+            <span class="account-name">Account 2</span>
+            <div class="amount">$xxxxxx</div>
+        </div>
+
+        <div class="account-box">
+            <span class="account-name">Account 3</span>
+            <div class="amount">$xxxxxx</div>
+        </div>
+    </div>
+</body>
+</html>
