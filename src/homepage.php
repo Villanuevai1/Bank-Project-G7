@@ -1,4 +1,4 @@
-
+<?php include('php/backend_navbar.php'); ?>
 <html>
 
 <head>
@@ -82,11 +82,10 @@ body {
 </head>
 
 <body>
-    <h1 class="borderexample">
-        <center>Dashboard</center></h1>
+
 
 <br>
-<h3 align="right">  <a href= "#"> logout</a>  </h3>
+
 
 
     <nav class="dropdownmenu">

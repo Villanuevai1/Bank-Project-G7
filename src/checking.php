@@ -1,3 +1,4 @@
+<?php include('php/backend_navbar.php'); ?>
 <html>
 <head>
     <!-- Sets the title of the webpage -->
