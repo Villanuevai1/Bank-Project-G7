@@ -1,9 +1,8 @@
-<?php
-session_start();
+<?php 
+session_start(); 
 
 // Check if user is logged in
 if(!isset($_SESSION['username'])) {
-    // Redirect user to login page if not logged in
     header("Location: login.php");
     exit();
 }
@@ -16,7 +15,7 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-// Fetch account information for the logged-in user
+// get account information for the logged-in user
 $username = $_SESSION['username'];
 $get_account_info_query = "SELECT * FROM checkinginfo WHERE customer_id = (SELECT customer_id FROM customers WHERE username = '$username')";
 $get_account_info_result = mysqli_query($conn, $get_account_info_query);
@@ -90,11 +89,11 @@ if(mysqli_num_rows($get_account_info_result) > 0) {
 </head>
 <body>
     <div class="atm-container">
-        <div class="atm-title">Deposit</div>
-        <div class="account-info"> <h2>Hello <?php echo isset($_SESSION['username']) ? $_SESSION['username'] : 'Guest'; ?></h2></div>
+    <div class="atm-title">Deposit</div>
+    <div class="account-info"> <h2>Hello <?php echo isset($_SESSION['username']) ? $_SESSION['username'] : 'Guest'; ?></h2></div>
 
-        <div id="accordion">
-            <?php
+<div id="accordion">
+            <?php 
             // Display account information dynamically
             if(!empty($accounts)) {
                 foreach($accounts as $account) {
@@ -104,27 +103,27 @@ if(mysqli_num_rows($get_account_info_result) > 0) {
                     $account_number = $account['account_number'];
                     $pin = $account['pin'];
             ?>
-                <div class="card">
-                    <div class="card-header" id="heading<?php echo $accountname,  $balance; ?>">
+        <div class="card">
+        <div class="card-header" id="heading<?php echo $accountname,  $balance; ?>">
                         <h5 class="mb-0">
-                            <span class="account-name"><?php echo $accountname; ?></span><br>
-                            Balance: $<?php echo $balance; ?>
+                        <span class="account-name"><?php echo $accountname; ?></span><br>
+                        Balance: $<?php echo $balance; ?>
                         </h5>
                         <button class="btn btn-link" data-bs-toggle="collapse" data-bs-target="#collapse<?php echo $accountname; ?>" aria-expanded="true" aria-controls="collapse<?php echo $accountname; ?>">
-                            View Details
+                        View Details
                         </button>
                     </div>
                     <div id="collapse<?php echo $accountname; ?>" class="collapse" aria-labelledby="heading<?php echo $accountname,  $balance; ?>" data-parent="#accordion">
-                        <div class="card-body">
-                            <div class="account-details">
+                    <div class="card-body">
+                    <div class="account-details">
                                 Credit Card Number: <?php echo $credit_card_number; ?><br>
                                 Account Number: <?php echo $account_number; ?><br>
                                 PIN: <?php echo $pin; ?><br>
-                            </div>
-                        </div>
-                    </div>
                 </div>
-            <?php
+                </div>
+                </div>
+                </div>
+            <?php 
                 }
             } else {
                 echo "<h3>No accounts found.</h3>";
@@ -133,10 +132,10 @@ if(mysqli_num_rows($get_account_info_result) > 0) {
             <br>
             <hr>
 
-            <form action="backend_atm_deposit.php" method="post">
+            <form action="backend_deposit.php" method="post">
                 <div class="mb-3">
                     <label for="account" class="form-label">Select Account to Deposit Into:</label>
-                    <?php
+                    <?php 
                     // Display account options dynamically
                     if(!empty($accounts)) {
                         foreach($accounts as $account) {
@@ -148,7 +147,7 @@ if(mysqli_num_rows($get_account_info_result) > 0) {
                                     <?php echo $accountname; ?>
                                 </label>
                             </div>
-                    <?php
+                    <?php 
                         }
                     } else {
                         echo "<p>No accounts found</p>";
@@ -157,17 +156,17 @@ if(mysqli_num_rows($get_account_info_result) > 0) {
                 </div>
                 <div class="mb-3">
                     <label for="amount" class="form-label">Enter Amount to Deposit:</label>
-                    <input type="number" class="form-control" id="amount" name="amount" min="0" step="0.01" required>
-                </div>
-                <button type="submit" class="btn btn-primary">Deposit</button>
-            </form>
-        </div>
+        <input type="number" class="form-control" id="amount" name="amount" min="0" step="0.01" required>
+     </div>
+    <button type="submit" class="btn btn-primary">Deposit</button>
+    </form>
+    </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>
 
-<?php
+<?php 
 mysqli_close($conn);
 ?>
