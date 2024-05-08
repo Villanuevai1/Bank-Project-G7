@@ -17,10 +17,10 @@
 <body>
     <h1> Processing...</h1>
     <?php
-    if (isset($_POST["username"]) && isset($_POST["password"])  && isset($_POST["first_name"]) && isset($_POST["last_name"])  && isset($_POST["address"]) && isset($_POST["city"])&& isset($_POST["zip"])&& isset($_POST["DriverL"])&& isset($_POST["SSN"])) 
+    if (isset($_POST["username"]) && isset($_POST["password"])  && isset($_POST["first_name"]) && isset($_POST["last_name"])  && isset($_POST["address"]) && isset($_POST["city"])&& isset($_POST["zip"])&& isset($_POST["DriverL"])&& isset($_POST["SSN"]))
     {
-        if (!empty($_POST["username"]) && !empty($_POST["password"]) && !empty($_POST["first_name"])&& !empty($_POST["last_name"])&& 
-            !empty($_POST["address"]) && !empty($_POST["city"])&& !empty($_POST["zip"])&& !empty($_POST["DriverL"])&& !empty($_POST["SSN"])) 
+        if (!empty($_POST["username"]) && !empty($_POST["password"]) && !empty($_POST["first_name"])&& !empty($_POST["last_name"])&&
+            !empty($_POST["address"]) && !empty($_POST["city"])&& !empty($_POST["zip"])&& !empty($_POST["DriverL"])&& !empty($_POST["SSN"]))
         {
             $username = $_POST["username"];
             $password = $_POST["password"];
@@ -56,9 +56,9 @@
                 $results = mysqli_query($conn, $sql);
 
                 if ($results) {
-                    echo "<div class='good-message'> SUCCESS: User has been added. <br> <img src='giphy2.gif' alt='Empty Fields GIF'> </div>";  
+                    echo "<div class='good-message'> SUCCESS: User has been added. <br> <img src='giphy2.gif' alt='Empty Fields GIF'> </div>";
 
-                    //need to fix the link      
+                    //need to fix the link
                     echo "<a href='login.php'> CLICK HERE for login </a>";
        
                 } else {
@@ -68,14 +68,14 @@
             mysqli_close($conn); // Close connection
         } else {
             echo "<div class='error-message'> Error: Username, password, address, city, zip, driver's license number, or SSN is empty. <br> <img src='giphy.gif' alt='Empty Fields GIF'> </div>";
-                                //need to fix the link      
+                                //need to fix the link
             echo "<a href='index.php'> Redirecting to registration</a>";
 
         }
     } else {
         echo "Error: Form was not submitted.";
 
-                            //need to fix the link      
+                            //need to fix the link
             echo "<a href='index.php'>Product Redirecting to registration </a>";
     }
     ?>
