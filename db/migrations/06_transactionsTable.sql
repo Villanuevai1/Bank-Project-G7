@@ -1,0 +1,7 @@
+CREATE TABLE transactions (
+    id INT(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    accountname VARCHAR(255) NOT NULL,
+    transaction_type VARCHAR(255) NOT NULL,
+    amount DECIMAL(10,2) NOT NULL,
+    date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
