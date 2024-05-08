@@ -1,9 +1,9 @@
-<?php
-session_start();
+<?php 
+session_start(); 
 
 // Check if user is logged in
 if(!isset($_SESSION['username'])) {
-    // Redirect user to login page if not logged in
+    
     header("Location: login.php");
     exit();
 }
@@ -16,12 +16,12 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-// Fetch account information for the logged-in user
+// get account information for the logged-in user
 $username = $_SESSION['username'];
 $get_account_info_query = "SELECT * FROM checkinginfo WHERE customer_id = (SELECT customer_id FROM customers WHERE username = '$username')";
 $get_account_info_result = mysqli_query($conn, $get_account_info_query);
 
-// Store fetched account data in an array
+// Store  account data in an array
 $accounts = array();
 if(mysqli_num_rows($get_account_info_result) > 0) {
     while($row = mysqli_fetch_assoc($get_account_info_result)) {
@@ -31,7 +31,6 @@ if(mysqli_num_rows($get_account_info_result) > 0) {
 
 ?>
 
-<!-- HTML code -->
 <html lang="en">
 <head>
  <meta charset="UTF-8">
@@ -90,46 +89,49 @@ if(mysqli_num_rows($get_account_info_result) > 0) {
 </head>
 <body>
     <div class="atm-container">
-        <div class="atm-title">Transfer Funds</div>
-        <div class="account-info"> <h2>Hello <?php echo isset($_SESSION['username']) ? $_SESSION['username'] : 'Guest'; ?></h2></div>
+    <div class="atm-title">Transfer Funds</div>
+    <div class="account-info"> <h2>Hello <?php echo isset($_SESSION['username']) ? $_SESSION['username'] : 'Guest'; ?></h2></div>
 
         <form action="backend_atm_transfer.php" method="post">
-            <div class="mb-3">
-                <label for="source_account" class="form-label">Select Source Account:</label>
-                <?php
-                // Display account options dynamically
-                if(!empty($accounts)) {
+        <div class="mb-3">
+        <label for="source_account" class="form-label">Select Source Account:</label>
+<?php 
+            // Display account options dynamically
+            if(!empty($accounts)) {
                     foreach($accounts as $account) {
                         $accountname = $account['accountname'];
-                ?>
+?>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="source_account" id="source_account_<?php echo $accountname; ?>" value="<?php echo $accountname; ?>">
-                            <label class="form-check-label" for="source_account_<?php echo $accountname; ?>">
-                                <?php echo $accountname; ?>
-                            </label>
+                        <input class="form-check-input" type="radio" name="source_account" id="source_account_<?php echo $accountname; ?>" value="<?php echo $accountname; ?>">
+                        <label class="form-check-label" for="source_account_<?php echo $accountname; ?>">
+                        <?php echo $accountname; ?>
+                        </label>
                         </div>
-                <?php
+<?php 
                     }
-                } else {
+                } 
+                else     {
                     echo "<p>No accounts found</p>";
-                }
-                ?>
+                    }
+?>
             </div>
             <div class="mb-3">
                 <label for="destination_account" class="form-label">Select Destination Account:</label>
-                <?php
+<?php 
                 // Display account options dynamically
-                if(!empty($accounts)) {
-                    foreach($accounts as $account) {
+                if(!empty($accounts))
+                {
+                    foreach($accounts as $account)
+                        {
                         $accountname = $account['accountname'];
-                ?>
+?>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="destination_account" id="destination_account_<?php echo $accountname; ?>" value="<?php echo $accountname; ?>">
-                            <label class="form-check-label" for="destination_account_<?php echo $accountname; ?>">
-                                <?php echo $accountname; ?>
-                            </label>
+                        <input class="form-check-input" type="radio" name="destination_account" id="destination_account_<?php echo $accountname; ?>" value="<?php echo $accountname; ?>">
+                        <label class="form-check-label" for="destination_account_<?php echo $accountname; ?>">
+                        <?php echo $accountname; ?>
+                        </label>
                         </div>
-                <?php
+                <?php 
                     }
                 } else {
                     echo "<p>No accounts found</p>";
@@ -137,17 +139,16 @@ if(mysqli_num_rows($get_account_info_result) > 0) {
                 ?>
             </div>
             <div class="mb-3">
-                <label for="amount" class="form-label">Enter Amount to Transfer:</label>
-                <input type="number" class="form-control" id="amount" name="amount" min="0.01" step="0.01" required>
+            <label for="amount" class="form-label">Enter Amount to Transfer:</label>
+            <input type="number" class="form-control" id="amount" name="amount" min="0.01" step="0.01" required>
             </div>
             <button type="submit" class="btn btn-primary">Transfer</button>
         </form>
     </div>
 
-    <!-- Add your scripts here -->
 </body>
 </html>
 
-<?php
-mysqli_close($conn); // Close database connection
+<?php 
+mysqli_close($conn); 
 ?>
