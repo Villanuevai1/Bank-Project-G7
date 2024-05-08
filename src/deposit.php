@@ -3,7 +3,6 @@ session_start();
 
 // Check if user is logged in
 if(!isset($_SESSION['username'])) {
-    // Redirect user to login page if not logged in
     header("Location: login.php");
     exit();
 }
@@ -16,12 +15,12 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-// Fetch account information for the logged-in user
+// get account information for the logged-in user
 $username = $_SESSION['username'];
 $get_account_info_query = "SELECT * FROM checkinginfo WHERE customer_id = (SELECT customer_id FROM customers WHERE username = '$username')";
 $get_account_info_result = mysqli_query($conn, $get_account_info_query);
 
-// Store fetched account data in an array
+// Store account data in an array
 $accounts = array();
 if(mysqli_num_rows($get_account_info_result) > 0) {
     while($row = mysqli_fetch_assoc($get_account_info_result)) {
@@ -37,7 +36,7 @@ if(mysqli_num_rows($get_account_info_result) > 0) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <title>ATM Interface</title>
+    <title>deposit Interface</title>
 <style>
         body {
             font-family: Arial, sans-serif;
@@ -105,25 +104,25 @@ if(mysqli_num_rows($get_account_info_result) > 0) {
                     $pin = $account['pin'];
             ?>
                 <div class="card">
-                    <div class="card-header" id="heading<?php echo $accountname,  $balance; ?>">
-                        <h5 class="mb-0">
-                            <span class="account-name"><?php echo $accountname; ?></span><br>
-                            Balance: $<?php echo $balance; ?>
+                <div class="card-header" id="heading<?php echo $accountname,  $balance; ?>">
+                <h5 class="mb-0">
+                <span class="account-name"><?php echo $accountname; ?></span><br>
+                Balance: $<?php echo $balance; ?>
                         </h5>
                         <button class="btn btn-link" data-bs-toggle="collapse" data-bs-target="#collapse<?php echo $accountname; ?>" aria-expanded="true" aria-controls="collapse<?php echo $accountname; ?>">
-                            View Details
+                        View Details
                         </button>
                     </div>
                     <div id="collapse<?php echo $accountname; ?>" class="collapse" aria-labelledby="heading<?php echo $accountname,  $balance; ?>" data-parent="#accordion">
-                        <div class="card-body">
-                            <div class="account-details">
-                                Credit Card Number: <?php echo $credit_card_number; ?><br>
-                                Account Number: <?php echo $account_number; ?><br>
-                                PIN: <?php echo $pin; ?><br>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                    <div class="card-body">
+                        <div class="account-details">
+                        Credit Card Number: <?php echo $credit_card_number; ?><br>
+                        Account Number: <?php echo $account_number; ?><br>
+                        PIN: <?php echo $pin; ?><br>
+            </div>
+            </div>
+            </div>
+            </div>
             <?php 
                 }
             } else {
@@ -150,7 +149,9 @@ if(mysqli_num_rows($get_account_info_result) > 0) {
                             </div>
                     <?php 
                         }
-                    } else {
+                    } 
+                    else 
+                    {
                         echo "<p>No accounts found</p>";
                     }
                     ?>
@@ -160,8 +161,8 @@ if(mysqli_num_rows($get_account_info_result) > 0) {
                     <input type="number" class="form-control" id="amount" name="amount" min="0" step="0.01" required>
                 </div>
                 <button type="submit" class="btn btn-primary">Deposit</button>
-            </form>
-        </div>
+    </form>
+    </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
