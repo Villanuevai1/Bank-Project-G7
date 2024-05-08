@@ -15,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
 
         // register user
-        $sql = "SELECT password FROM customers WHERE username = '$username'";
+        $sql = "SELECT password FROM Admin WHERE username = '$username'";
         $results = mysqli_query($conn, $sql);
 
         if ($results) {
@@ -23,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if ($row["password"] === $password) {
                 $logged_in = true;
                 // Redirect to the dashboard page
-                header("Location: homepage.php");
+                header("Location: Adminpage.php");
                 exit();
             } else {
                 echo "Password incorrect";
@@ -60,11 +60,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="container py-5 h-100">
             <div class="row d-flex justify-content-center align-items-center h-100">
                 <div class="col-12 col-md-8 col-lg-6 col-xl-5">
-                     <div class="card text-white" style="border-radius: 1rem; background-color: #183C67;"> <!-- changed bg -->
+                    <div class="card bg-dark text-white" style="border-radius: 1rem;">
                         <div class="card-body p-5 text-center">
                             <div class="mb-md-5 mt-md-4 pb-5">
-                                 <img src="imaes/logo_transparent.png" style="max-width: 300px; height: auto;"> <!-- added logo -->
-                                <h2 class="fw-bold mb-2 pt-5 text-uppercase">Login</h2>  <!-- added top padding -->
+                                <h2 class="fw-bold mb-2 text-uppercase">Admin Login</h2>
                                 <p class="text-white-50 mb-5">Please enter your login and password!</p>
                                 <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                                     <div class="form-outline form-white mb-4">
@@ -85,8 +84,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                     <a href="#!" class="text-white"><i class="fab fa-google fa-lg"></i></a>
                                 </div>
                                 <div>
-                                    <p class="mb-0">Don't have an account? <a href="../index.php"
-                                             class="text-white fw-bold">Sign Up</a></p> <!-- changed text opacity -->
+                                    
                                 </div>
                             </div>
                         </div>

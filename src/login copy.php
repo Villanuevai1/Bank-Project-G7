@@ -1,6 +1,9 @@
 <?php
 $logged_in = false;
 
+session_start(); // Start the session
+
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST["username"]) && isset($_POST["password"])) {
         $username = $_POST["username"];
@@ -22,6 +25,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $row = mysqli_fetch_assoc($results);
             if ($row["password"] === $password) {
                 $logged_in = true;
+                // Set the session username
+                      $_SESSION['username'] = $username;
                 // Redirect to the dashboard page
                 header("Location: homepage.php");
                 exit();
@@ -84,7 +89,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                     <a href="#!" class="text-white"><i class="fab fa-google fa-lg"></i></a>
                                 </div>
                                 <div>
-                                    <p class="mb-0">Don't have an account? <a href="../../index.php"
+                                    <p class="mb-0">Don't have an account? <a href="index.php"
                                             class="text-white-50 fw-bold">Sign Up</a></p>
                                 </div>
                             </div>
