@@ -27,7 +27,7 @@
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Employee Portal</a>
+                    <a class="nav-link" href="login.php">Employee Portal</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link disabled" href="#">ATM</a>
@@ -35,7 +35,7 @@
             </ul>
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="php/backend_logout.php">Logout</a>
+                    <a class="nav-link" href="login.php">Logout</a>
                 </li>
             </ul>
         </div>
